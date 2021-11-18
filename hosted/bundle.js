@@ -7,7 +7,7 @@ var handleTeam = function handleTeam(e) {
   }, 350);
 
   if ($("#teamName").val() == '' || $("#teamAge").val() == '') {
-    handleError("RAWR! All fields are required");
+    handleError("Error! All fields are required");
     return false;
   }
 

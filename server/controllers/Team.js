@@ -15,7 +15,7 @@ const makerPage = (req, res) => {
 
 const makeTeam = (req, res) => {
   if (!req.body.name || !req.body.age) {
-    return res.status(400).json({ error: 'RAWR! Both name and age are required' });
+    return res.status(400).json({ error: 'Error! Both name and age are required' });
   }
 
   const teamData = {

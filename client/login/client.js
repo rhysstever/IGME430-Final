@@ -4,7 +4,7 @@ const handleLogin = (e) => {
 	$("#teamMessage").animate({ width: 'hide' }, 350);
 
 	if($("#user").val() == '' || $("#pass").val() == '') {
-		handleError("RAWR! Username or password is empty");
+		handleError("Error! Username or password is empty");
 		return false;
 	}
 
@@ -21,12 +21,12 @@ const handleSignup = (e) => {
 	$("#teamMessage").animate({ width: 'hide' }, 350);
 
 	if($("#user").val() == '' || $("#pass").val() == '' ||  $("#pass2").val() == '') {
-		handleError("RAWR! All fields are required");
+		handleError("Error! All fields are required");
 		return false;
 	}
 
 	if($("#pass").val() !==  $("#pass2").val()) {
-		handleError("RAWR! Passwords do not match");
+		handleError("Error! Passwords do not match");
 		return false;
 	}
 
