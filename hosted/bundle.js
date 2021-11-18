@@ -1,99 +1,99 @@
 "use strict";
 
-var handleDomo = function handleDomo(e) {
+var handleTeam = function handleTeam(e) {
   e.preventDefault();
-  $("#domoMessage").animate({
+  $("#teamMessage").animate({
     width: 'hide'
   }, 350);
 
-  if ($("#domoName").val() == '' || $("#domoAge").val() == '') {
+  if ($("#teamName").val() == '' || $("#teamAge").val() == '') {
     handleError("RAWR! All fields are required");
     return false;
   }
 
-  sendAjax('POST', $("#domoForm").attr("action"), $("#domoForm").serialize(), function () {
-    loadDomosFromServer();
+  sendAjax('POST', $("#teamForm").attr("action"), $("#teamForm").serialize(), function () {
+    loadTeamsFromServer();
   });
   return false;
 };
 
-var DomoForm = function DomoForm(props) {
+var TeamForm = function TeamForm(props) {
   return /*#__PURE__*/React.createElement("form", {
-    id: "domoForm",
-    onSubmit: handleDomo,
-    name: "domoForm",
+    id: "teamForm",
+    onSubmit: handleTeam,
+    name: "teamForm",
     action: "/maker",
     method: "POST",
-    className: "domoForm"
+    className: "teamForm"
   }, /*#__PURE__*/React.createElement("label", {
     htmlFor: "name"
   }, "Name: "), /*#__PURE__*/React.createElement("input", {
-    id: "domoName",
+    id: "teamName",
     type: "text",
     name: "name",
-    placeholder: "Domo Name"
+    placeholder: "Team Name"
   }), /*#__PURE__*/React.createElement("label", {
     htmlFor: "age"
   }, "Age: "), /*#__PURE__*/React.createElement("input", {
-    id: "domoAge",
+    id: "teamAge",
     type: "text",
     name: "age",
-    placeholder: "Domo Age"
+    placeholder: "Team Age"
   }), /*#__PURE__*/React.createElement("input", {
     type: "hidden",
     name: "_csrf",
     value: props.csrf
   }), /*#__PURE__*/React.createElement("input", {
-    className: "makeDomoSubmit",
+    className: "makeTeamSubmit",
     type: "submit",
-    value: "Make Domo"
+    value: "Make Team"
   }));
 };
 
-var DomoList = function DomoList(props) {
-  if (props.domos.length === 0) {
+var TeamList = function TeamList(props) {
+  if (props.teams.length === 0) {
     return /*#__PURE__*/React.createElement("div", {
-      className: "domoList"
+      className: "teamList"
     }, /*#__PURE__*/React.createElement("h3", {
-      className: "emptyDomo"
-    }, "No Domos yet"));
+      className: "emptyTeam"
+    }, "No Teams yet"));
   }
 
-  var domoNodes = props.domos.map(function (domo) {
+  var teamNodes = props.teams.map(function (team) {
     return /*#__PURE__*/React.createElement("div", {
-      key: domo._id,
-      className: "domo"
+      key: team._id,
+      className: "team"
     }, /*#__PURE__*/React.createElement("img", {
       src: "/assets/img/domoface.jpeg",
-      alt: "domo face",
-      className: "domoFace"
+      alt: "team face",
+      className: "teamFace"
     }), /*#__PURE__*/React.createElement("h3", {
-      className: "domoName"
-    }, "Name: ", domo.name, " "), /*#__PURE__*/React.createElement("h3", {
-      className: "domoAge"
-    }, "Age: ", domo.age, " "));
+      className: "teamName"
+    }, "Name: ", team.name, " "), /*#__PURE__*/React.createElement("h3", {
+      className: "teamAge"
+    }, "Age: ", team.age, " "));
   });
   return /*#__PURE__*/React.createElement("div", {
-    className: "domoList"
-  }, domoNodes);
+    className: "teamList"
+  }, teamNodes);
 };
 
-var loadDomosFromServer = function loadDomosFromServer() {
-  sendAjax('GET', '/getDomos', null, function (data) {
-    ReactDOM.render( /*#__PURE__*/React.createElement(DomoList, {
-      domos: data.domos
-    }), document.querySelector("#domos"));
+var loadTeamsFromServer = function loadTeamsFromServer() {
+  sendAjax('GET', '/getTeams', null, function (data) {
+    ReactDOM.render( /*#__PURE__*/React.createElement(TeamList, {
+      teams: data.teams
+    }), document.querySelector("#teams"));
   });
 };
 
 var setup = function setup(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement(DomoForm, {
+  ReactDOM.render( /*#__PURE__*/React.createElement(TeamForm, {
     csrf: csrf
-  }), document.querySelector("#makeDomo"));
-  ReactDOM.render( /*#__PURE__*/React.createElement(DomoForm, {
-    domos: []
-  }), document.querySelector("#domos"));
-  loadDomosFromServer();
+  }), document.querySelector("#makeTeam"));
+  ReactDOM.render( /*#__PURE__*/React.createElement(TeamForm, {
+    teams: []
+  }), document.querySelector("#teams"));
+  loadTeamsFromServer();
 };
 
 var getToken = function getToken() {
@@ -109,13 +109,13 @@ $(document).ready(function () {
 
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
-  $("#domoMessage").animate({
+  $("#teamMessage").animate({
     width: 'toggle'
   }, 350);
 };
 
 var redirect = function redirect(response) {
-  $("#domoMessage").animate({
+  $("#teamMessage").animate({
     width: 'hide'
   }, 350);
   window.location = response.redirect;
