@@ -1,11 +1,11 @@
 {
-  "name": "Final Project",
+  "name": "Logins",
   "version": "1.0.0",
   "engines": {
     "node": "v16.8.0",
     "npm": "8.1.1"
   },
-  "description": "My final project for IGME 430",
+  "description": "A Simple Login Example using Node.js, Mongo and Redis",
   "main": "./server/app.js",
   "scripts": {
     "buildLoginBundle": "babel ./client/login ./client/helper --presets @babel/preset-react --out-file ./hosted/loginBundle.js",
