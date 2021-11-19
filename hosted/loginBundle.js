@@ -2,9 +2,7 @@
 
 var handleLogin = function handleLogin(e) {
   e.preventDefault();
-  $("#teamMessage").animate({
-    width: 'hide'
-  }, 350);
+  $("#teamMessage").animate({ width: 'hide' }, 350);
 
   if ($("#user").val() == '' || $("#pass").val() == '') {
     handleError("Error! Username or password is empty");
@@ -18,9 +16,7 @@ var handleLogin = function handleLogin(e) {
 
 var handleSignup = function handleSignup(e) {
   e.preventDefault();
-  $("#teamMessage").animate({
-    width: 'hide'
-  }, 350);
+  $("#teamMessage").animate({ width: 'hide' }, 350);
 
   if ($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
     handleError("Error! All fields are required");
@@ -151,15 +147,11 @@ $(document).ready(function () {
 
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
-  $("#teamMessage").animate({
-    width: 'toggle'
-  }, 350);
+  $("#teamMessage").animate({ width: 'toggle' }, 350);
 };
 
 var redirect = function redirect(response) {
-  $("#teamMessage").animate({
-    width: 'hide'
-  }, 350);
+  $("#teamMessage").animate({ width: 'hide' }, 350);
   window.location = response.redirect;
 };
 

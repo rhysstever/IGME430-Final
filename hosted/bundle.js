@@ -2,9 +2,7 @@
 
 var handleTeam = function handleTeam(e) {
   e.preventDefault();
-  $("#teamMessage").animate({
-    width: 'hide'
-  }, 350);
+  $("#teamMessage").animate({ width: 'hide' }, 350);
 
   if ($("#teamName").val() == '' || $("#teamSize").val() == '' || $("#teamLeader").val() == '') {
     handleError("Error! All fields are required");
@@ -71,8 +69,8 @@ var TeamList = function TeamList(props) {
       key: team._id,
       className: "team"
     }, /*#__PURE__*/React.createElement("img", {
-      src: "/assets/img/domoface.jpeg",
-      alt: "team face",
+      src: "/assets/img/logo.png",
+      alt: "TM logo",
       className: "teamFace"
     }), /*#__PURE__*/React.createElement("h3", {
       className: "teamName"
@@ -120,15 +118,11 @@ $(document).ready(function () {
 
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
-  $("#teamMessage").animate({
-    width: 'toggle'
-  }, 350);
+  $("#teamMessage").animate({ width: 'toggle' }, 350);
 };
 
 var redirect = function redirect(response) {
-  $("#teamMessage").animate({
-    width: 'hide'
-  }, 350);
+  $("#teamMessage").animate({ width: 'hide' }, 350);
   window.location = response.redirect;
 };
 

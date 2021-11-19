@@ -153,8 +153,8 @@ nav:nth-child(1) {
     height: 650px;
     position: absolute;
     z-index: 200;
-    right: 0px;
-    overflow: hidden;
+    right: 200px;
+    overflow: visible;
 }
 
 #teamMessage h3 {
@@ -162,12 +162,6 @@ nav:nth-child(1) {
     position: absolute;
     top: 0px;
     left: 20px;
-}
-
-#speech {
-    height: 120px;
-    width: 250px;
-    z-index:300;
 }
 
 #errorMessage {
@@ -179,13 +173,8 @@ nav:nth-child(1) {
 
 #team {
     z-index: 225;
-    margin-top: -20px;
-    margin-left: 135px;
     height: 450px;
-    width: 300px;
-    -ms-transform: rotate(330deg);
-    -webkit-transform: rotate(330deg); 
-    transform: rotate(330deg);
+    width: 450px;
 }
 
 #teams {
