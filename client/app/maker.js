@@ -3,7 +3,7 @@ const handleTeam = (e) => {
 
 	$("#teamMessage").animate({ width: 'hide' }, 350);
 
-	if($("#teamName").val() == '' || $("#teamAge").val() == '') {
+	if($("#teamName").val() == '' || $("#teamSize").val() == '') {
 		handleError("Error! All fields are required");
 		return false;
 	}
@@ -22,12 +22,13 @@ const TeamForm = (props) => {
 			name="teamForm"
 			action="/maker"
 			method="POST"
-			className="teamForm"
-		>
-			<label htmlFor="name">Name: </label>
+			className="teamForm">
+			<label htmlFor="name">Team Name: </label>
 			<input id="teamName" type="text" name="name" placeholder="Team Name"/>
-			<label htmlFor="age">Age: </label>
-			<input id="teamAge" type="text" name="age" placeholder="Team Age"/>
+			<label htmlFor="size">Size: </label>
+			<input id="teamSize" type="text" name="size" placeholder="Team Size"/>
+			<label htmlFor="leader">Leader Name: </label>
+			<input id="teamLeader" type="text" name="leader" placeholder="Team Leader"/>
 			<input type="hidden" name="_csrf" value={props.csrf}/>
 			<input className="makeTeamSubmit" type="submit" value="Make Team"/>
 		</form>
@@ -48,7 +49,8 @@ const TeamList = function(props) {
 			<div key={team._id} className="team">
 				<img src="/assets/img/domoface.jpeg" alt="team face" className="teamFace" />
 				<h3 className="teamName">Name: {team.name} </h3>
-				<h3 className="teamAge">Age: {team.age} </h3>
+				<h3 className="teamSize">size: {team.size} </h3>
+				<h3 className="teamLeader">leader: {team.leader} </h3>
 			</div>
 		);
 	});

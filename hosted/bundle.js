@@ -6,7 +6,7 @@ var handleTeam = function handleTeam(e) {
     width: 'hide'
   }, 350);
 
-  if ($("#teamName").val() == '' || $("#teamAge").val() == '') {
+  if ($("#teamName").val() == '' || $("#teamSize").val() == '' || $("#teamLeader").val() == '') {
     handleError("Error! All fields are required");
     return false;
   }
@@ -33,13 +33,20 @@ var TeamForm = function TeamForm(props) {
     name: "name",
     placeholder: "Team Name"
   }), /*#__PURE__*/React.createElement("label", {
-    htmlFor: "age"
-  }, "Age: "), /*#__PURE__*/React.createElement("input", {
-    id: "teamAge",
+    htmlFor: "size"
+  }, "Size: "), /*#__PURE__*/React.createElement("input", {
+    id: "teamSize",
     type: "text",
-    name: "age",
-    placeholder: "Team Age"
-  }), /*#__PURE__*/React.createElement("input", {
+    name: "size",
+    placeholder: "Team size"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "leader"
+  }, "Leader: "), /*#__PURE__*/React.createElement("input", {
+    id: "teamLeader",
+    type: "text",
+    name: "leader",
+    placeholder: "Leader"
+  }),/*#__PURE__*/React.createElement("input", {
     type: "hidden",
     name: "_csrf",
     value: props.csrf
@@ -69,9 +76,13 @@ var TeamList = function TeamList(props) {
       className: "teamFace"
     }), /*#__PURE__*/React.createElement("h3", {
       className: "teamName"
-    }, "Name: ", team.name, " "), /*#__PURE__*/React.createElement("h3", {
-      className: "teamAge"
-    }, "Age: ", team.age, " "));
+    }, "Name: ", team.name, " "), 
+    /*#__PURE__*/React.createElement("h3", {
+      className: "teamSize"
+    }, "Size: ", team.size, " "),
+    /*#__PURE__*/React.createElement("h3", {
+      className: "teamLeader"
+    }, "Leader: ", team.leader, " "), );
   });
   return /*#__PURE__*/React.createElement("div", {
     className: "teamList"

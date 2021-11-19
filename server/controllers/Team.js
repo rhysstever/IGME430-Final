@@ -14,13 +14,14 @@ const makerPage = (req, res) => {
 };
 
 const makeTeam = (req, res) => {
-  if (!req.body.name || !req.body.age) {
-    return res.status(400).json({ error: 'Error! Both name and age are required' });
+  if (!req.body.name || !req.body.size || !req.body.leader) {
+    return res.status(400).json({ error: 'Error! Team name, size, and leader name are required' });
   }
 
   const teamData = {
     name: req.body.name,
-    age: req.body.age,
+    size: req.body.size,
+    leader: req.body.leader,
     owner: req.session.account._id,
   };
 

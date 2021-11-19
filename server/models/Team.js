@@ -18,10 +18,17 @@ const TeamSchema = new mongoose.Schema({
     set: setName,
   },
 
-  age: {
+  size: {
     type: Number,
     min: 0,
     required: true,
+  },
+
+  leader: {
+    type: String,
+    required: true,
+    trim: true,
+    set: setName,
   },
 
   owner: {
@@ -38,7 +45,8 @@ const TeamSchema = new mongoose.Schema({
 
 TeamSchema.statics.toAPI = (doc) => ({
   name: doc.name,
-  age: doc.age,
+  size: doc.size,
+  leader: doc.leader,
 });
 
 TeamSchema.statics.findByOwner = (ownerId, callback) => {
@@ -46,7 +54,7 @@ TeamSchema.statics.findByOwner = (ownerId, callback) => {
     owner: convertID(ownerId),
   };
 
-  return TeamModel.find(search).select('name age').lean().exec(callback);
+  return TeamModel.find(search).select('name size leader').lean().exec(callback);
 };
 
 TeamModel = mongoose.model('Team', TeamSchema);

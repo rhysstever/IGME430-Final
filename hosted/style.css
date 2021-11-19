@@ -50,7 +50,6 @@ nav:nth-child(1) {
 .teamForm {
     border: 2px solid #338acc;
     height: 35px;
-    width: 700px;
     margin-top:0px;
     padding-top:10px;
     background-color: #55acee;
@@ -61,7 +60,7 @@ nav:nth-child(1) {
 .teamForm label {
     display: inline-block;
     width: 75px;
-    margin-left: 10px;
+    margin-left: 25px;
     font-size: 1.2em;
     float: left;
     color: white;
@@ -199,6 +198,8 @@ nav:nth-child(1) {
 }
 
 .team {
+    display: grid;
+    grid-template-columns: 10% 35% 15% 40%;
     width: 95%;
     margin: 0 auto;
     margin-top: 2px;
@@ -219,13 +220,11 @@ nav:nth-child(1) {
 }
 
 img.teamFace {
-    margin-left: 25px;
-    margin-right: 10px;
+    margin: 0 auto;
     height: 50px;
     width: 50px;
     border-radius: 4px;
     margin-top:10px;
-    float:left;
 }
 
 h3.emptyTeam {
@@ -237,20 +236,27 @@ h3.emptyTeam {
 }
 
 h3.teamName {
-    float:left;
-    width: 200px;
+    text-align: left;
+    max-width: 300px;
     font-weight: bold;
-    padding-left: 65px;
     font-size: 1.5em;
+    padding-left: 15px;
 }
 
-h3.teamAge {
-    float:right;
+h3.teamSize {
     text-align: left;
-    width: 100px;
+    max-width: 100px;
     font-weight: bold;
-    padding-right: 40px;
     font-size: 1.5em;
+    padding-left: 15px;
+}
+
+h3.teamLeader {
+    text-align: left;
+    max-width: 300px;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-left: 15px;
 }
 
 .team:first-child {
