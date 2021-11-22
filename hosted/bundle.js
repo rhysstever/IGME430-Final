@@ -69,7 +69,7 @@ var TeamList = function TeamList(props) {
       key: team._id,
       className: "team"
     }, /*#__PURE__*/React.createElement("img", {
-      src: "/assets/img/logo.png",
+      src: "/assets/img/team.png",
       alt: "TM logo",
       className: "teamFace"
     }), /*#__PURE__*/React.createElement("h3", {

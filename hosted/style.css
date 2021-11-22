@@ -10,14 +10,15 @@ html, body {
     height: 40px;
     width: 40;
     padding-top: 5px;
-    float:left;
+    padding-left: 15px;
+    float: left;
     border-radius: 8px;
 }
 
 nav {
     width: 100%;
     height: 50px;
-    background-color: #55acee;
+    background-color: #0070C0;
 }
 
 nav:nth-child(1) {
@@ -38,21 +39,21 @@ nav:nth-child(1) {
     text-decoration: none;
     padding: 5px;
     border-radius: 4px;
-    background-color: #55acee;
+    background-color: #0070C0;
     transition: background-color 0.4s ease;
 }
 
 .navlink a:hover {
     transition: background-color 0.8s ease;
-    background-color: #66bdff;
+    background-color: #201E50;
 }
 
 .teamForm {
-    border: 2px solid #338acc;
+    border: 2px solid #00B0F0;
     height: 35px;
     margin-top:0px;
     padding-top:10px;
-    background-color: #55acee;
+    background-color: #0070C0;
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;
 }
@@ -74,7 +75,7 @@ nav:nth-child(1) {
     transition: background-color 0.4s ease;
     display: inline;
     width: 90px;
-    background-color: #55acee;
+    background-color: #0070C0;
     border-radius: 2px;
     color: white;
     text-decoration: none;
@@ -86,7 +87,7 @@ nav:nth-child(1) {
 
 .makeTeamSubmit:hover {
     transition: background-color 0.4s ease;
-    background-color: #338acc;
+    background-color: #00B0F0;
 }
 
 .mainForm {
@@ -117,7 +118,7 @@ nav:nth-child(1) {
     margin-top: 14px;
     font-size: 1.2em;
     width: 100px;
-    background-color: #55acee;
+    background-color: #0070C0;
     border-radius: 2px;
     border-color: #66acee;
     padding: 3px 0px;
@@ -131,7 +132,7 @@ nav:nth-child(1) {
 
 .formSubmit:hover {
     transition: background-color 0.4s ease;
-    background-color: #338acc;
+    background-color: #00B0F0;
 }
 
 #user, #pass, #pass2 {
@@ -143,7 +144,7 @@ nav:nth-child(1) {
 
 #user:focus, #pass:focus, #pass2:focus {
     outline: none;
-    box-shadow: 0px 0px 1px 1px #55acee;
+    box-shadow: 0px 0px 1px 1px #0070C0;
 }
 
 #teamMessage {
@@ -180,7 +181,7 @@ nav:nth-child(1) {
 #teams {
     width: 40%;
     min-width: 400px;
-    border: 2px solid #55acee;
+    border: 2px solid #0070C0;
     border-radius: 4px;
     margin: 0 auto;
     margin-top: 100px;
@@ -188,14 +189,15 @@ nav:nth-child(1) {
 
 .team {
     display: grid;
+    color: white;
     grid-template-columns: 10% 35% 15% 40%;
     width: 95%;
     margin: 0 auto;
     margin-top: 2px;
     margin-bottom: 2px;
-    border: 2px solid #55acee;
+    border: 2px solid #0070C0;
     border-radius: 4px;
-    background-color: #55acee;
+    background-color: #0070C0;
     padding: 10px;
     min-height:60px;
     overflow: hidden;

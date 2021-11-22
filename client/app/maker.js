@@ -47,7 +47,7 @@ const TeamList = function(props) {
 	const teamNodes = props.teams.map(function(team) {
 		return (
 			<div key={team._id} className="team">
-				<img src="/assets/img/logo.png" alt="TM logo" className="teamFace"/>
+				<img src="/assets/img/team.png" alt="TM logo" className="teamFace"/>
 				<h3 className="teamName">Name: {team.name} </h3>
 				<h3 className="teamSize">size: {team.size} </h3>
 				<h3 className="teamLeader">leader: {team.leader} </h3>
