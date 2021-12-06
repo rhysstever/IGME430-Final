@@ -105,6 +105,46 @@ var SignupWindow = function SignupWindow(props) {
   }));
 };
 
+var UpdatePasswordWindow = function UpdatePasswordWindow(props) {
+  return /*#__PURE__*/React.createElement("form", {
+    id: "updatePasswordForm",
+    name: "updatePasswordForm",
+    onSubmit: handleSignup,
+    action: "/update",
+    method: "POST",
+    className: "mainForm"
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "username"
+  }, "Username: "), /*#__PURE__*/React.createElement("input", {
+    id: "user",
+    type: "text",
+    name: "username",
+    placeholder: "username"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "pass"
+  }, "Password: "), /*#__PURE__*/React.createElement("input", {
+    id: "pass",
+    type: "password",
+    name: "pass",
+    placeholder: "password"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "pass2"
+  }, "Password: "), /*#__PURE__*/React.createElement("input", {
+    id: "pass2",
+    type: "password",
+    name: "pass2",
+    placeholder: "retype password"
+  }), /*#__PURE__*/React.createElement("input", {
+    type: "hidden",
+    name: "_csrf",
+    value: props.csrf
+  }), /*#__PURE__*/React.createElement("input", {
+    className: "formSubmit",
+    type: "submit",
+    value: "Update Password"
+  }));
+};
+
 var createLoginWindow = function createLoginWindow(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(LoginWindow, {
     csrf: csrf
@@ -117,9 +157,16 @@ var createSignupWindow = function createSignupWindow(csrf) {
   }), document.querySelector("#content"));
 };
 
+var createUpdatePasswordWindow = function createUpdatePasswordWindow(csrf) {
+  ReactDOM.render( /*#__PURE__*/React.createElement(UpdatePasswordWindow, {
+    csrf: csrf
+  }), document.querySelector("#content"));
+};
+
 var setup = function setup(csrf) {
   var loginButton = document.querySelector("#loginButton");
   var signupButton = document.querySelector("#signupButton");
+  // var updatePasswordButton = document.querySelector("#updatePasswordButton");
   signupButton.addEventListener("click", function (e) {
     e.preventDefault();
     console.log(csrf);
@@ -131,6 +178,11 @@ var setup = function setup(csrf) {
     createLoginWindow(csrf);
     return false;
   });
+  // updatePasswordButton.addEventListener("click", function (e) {
+  //   e.preventDefault();
+  //   createLoginWindow(csrf);
+  //   return false;
+  // });
   createLoginWindow(csrf);
 };
 

@@ -78,6 +78,51 @@ const signup = (request, response) => {
   });
 };
 
+const updatePassword = (request, response) => {
+  const req = request;
+  const res = response;
+
+  // cast to string to cover up some security flaws
+  req.body.username = `${req.body.username}`;
+  req.body.newPass = `${req.body.newPass}`;
+  req.body.newPass2 = `${req.body.newPass2}`;
+
+  if (!req.body.username || !req.body.newPass || !req.body.newPass2) {
+    return res.status(400).json({ error: 'Error! All fields required' });
+  }
+
+  if (req.body.pass !== req.body.pass2) {
+    return res.status(400).json({ error: 'Error! Passwords do not match' });
+  }
+
+  return Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
+    const accountData = {
+      username: req.body.username,
+      salt,
+      password: hash,
+    };
+
+    const newAccount = new Account.AccountModel(accountData);
+
+    const savePromise = newAccount.save();
+
+    savePromise.then(() => {
+      req.session.account = Account.AccountModel.toAPI(newAccount);
+      res.json({ redirect: '/maker' });
+    });
+
+    savePromise.catch((err) => {
+      console.log(err);
+
+      if (err.code === 11000) {
+        return res.status(400).json({ error: 'Username already in use.' });
+      }
+
+      return res.status(400).json({ error: 'An error has occured' });
+    });
+  });
+};
+
 const getToken = (request, response) => {
   const req = request;
   const res = response;
@@ -93,4 +138,5 @@ module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.logout = logout;
 module.exports.signup = signup;
+module.exports.updatePassword = updatePassword;
 module.exports.getToken = getToken;
